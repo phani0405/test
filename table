@@ -1,0 +1,19 @@
+<div class="container">
+  <table class="table table-bordered">
+    <tr class="header" *ngFor="let t of resources">
+      <td (click)="t.opened = !t.opened"><span *ngIf="t.opened">-</span><span *ngIf="!t.opened">+</span></td>
+      <td>{{t.resourceName}}</td
+      <td>{{t.resourceType}}</td>
+      <td>{{t.resourceCategory}}</td>
+      <td colspan="3">
+        <table class="table table-bordered">
+          <tr *ngFor="let a of t.actions">
+            <td>{{a.name}}</td>            
+            <td>{{a.approval.approval?'Yes':'No'}}</td>
+            <td>{{a.approval.minApprovals}}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
